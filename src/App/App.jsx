@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import WishInput from './WishInput';
 
-const wishes = [
+const initialWishes = [
   { text: 'Subir en globo', done: true },
   { text: 'Dar la vuelta al mundo', done: false },
 ];
 
 function App() {
+  const [wishes, setWishes] = useState(initialWishes);
   return (
     <div className="app">
       <h1>Mi Wishlist</h1>
-      <fieldset className="wish-input">
-        <legend>New Wish...</legend>
-        <input type="text" placeholder="Input new wish" className="wish-input__field" />
-      </fieldset>
+      <WishInput />
       <ul className="wish-list">
         {wishes.map(({ text, done }, i) => (
           <li
