@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import WishInput from './WishInput';
+import WishList from './WishList';
 
 const initialWishes = [
   { text: 'Subir en globo', done: true },
@@ -13,18 +14,7 @@ function App() {
     <div className="app">
       <h1>Mi Wishlist</h1>
       <WishInput />
-      <ul className="wish-list">
-        {wishes.map(({ text, done }, i) => (
-          <li
-            className={`wish-list__item 
-            ${done ? 'wish-list__item--done' : ''}`}
-            key={text}
-          >
-            <input type="checkbox" id={`wish${i}`} checked={done} />
-            <label htmlFor={`wish${i}`}>{text}</label>
-          </li>
-        ))}
-      </ul>
+      <WishList wishes={wishes} />
 
       <button type="button" className="wish-clear">Eliminar deseos cumplidos</button>
 
