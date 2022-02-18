@@ -13,10 +13,16 @@ function App() {
   return (
     <div className="app">
       <h1>Mi Wishlist</h1>
-      <WishInput />
-      <WishList wishes={wishes} />
+      <WishInput onNewWish={(wish) => setWishes([wish, ...wishes])} />
+      <WishList wishes={wishes} onWishesChange={setWishes} />
 
-      <button type="button" className="wish-clear">Eliminar deseos cumplidos</button>
+      <button
+        type="button"
+        className="wish-clear"
+        onClick={() => setWishes(wishes.filter((wish) => !wish.done))}
+      >
+        Eliminar deseos cumplidos
+      </button>
 
     </div>
 

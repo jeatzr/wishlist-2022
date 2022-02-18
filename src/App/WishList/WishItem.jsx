@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function WishItem({ done, text, id }) {
+function WishItem({ done, text, id, onDoneChange }) {
   return (
     <li
       className={`wish-list__item 
             ${done ? 'wish-list__item--done' : ''}`}
       key={text}
     >
-      <input type="checkbox" id={id} checked={done} />
+      <input
+        type="checkbox"
+        id={id}
+        checked={done}
+        onChange={(e) => onDoneChange(e.target.checked)}
+      />
       <label htmlFor={id}>{text}</label>
     </li>
   );
