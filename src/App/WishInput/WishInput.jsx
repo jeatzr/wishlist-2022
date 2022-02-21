@@ -12,7 +12,7 @@ function WishInput({ onNewWish }) {
         value={newWish}
         onKeyUp={(e) => {
           if (e.key === 'Enter' && newWish.length) {
-            onNewWish({ done: false, text: newWish });
+            onNewWish({ done: false, text: newWish, id: Date.now() });
             setNewWish('');
           }
         }}

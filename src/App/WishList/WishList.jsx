@@ -5,11 +5,12 @@ import WishItem from './WishItem';
 function WishList({ wishes, onWishesChange }) {
   return (
     <ul className="wish-list">
-      {wishes.map(({ text, done }, i) => (
+      {wishes.map(({ text, done, id }, i) => (
         <WishItem
           text={text}
           done={done}
-          id={`wish${i}`}
+          id={`wish${id}`}
+          key={`wish${id}`}
           onDoneChange={(valorDone) => {
             const updatedWishes = [...wishes];
             updatedWishes[i].done = valorDone;
@@ -26,12 +27,15 @@ WishList.propTypes = {
     PropTypes.shape({
       done: PropTypes.bool,
       text: PropTypes.string,
+      id: PropTypes.number,
     }),
   ),
+  onWishesChange: PropTypes.func,
 };
 
 WishList.defaultProps = {
   wishes: [],
+  onWishesChange: () => { },
 };
 
 export default WishList;

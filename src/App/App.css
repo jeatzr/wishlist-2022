@@ -59,6 +59,14 @@ html {
   text-decoration: line-through;
 }
 
+.wish-list__item--warn label {
+  color: orange;
+}
+
+.wish-list__item--danger label {
+  color: red;
+}
+
 .wish-clear {
   width: 100%;
   padding: 0.5rem;

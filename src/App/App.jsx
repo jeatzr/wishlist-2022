@@ -4,8 +4,8 @@ import WishInput from './WishInput';
 import WishList from './WishList';
 
 const initialWishes = [
-  { text: 'Subir en globo', done: true },
-  { text: 'Dar la vuelta al mundo', done: false },
+  { text: 'Subir en globo', done: true, id: 0 },
+  { text: 'Dar la vuelta al mundo', done: false, id: 1 },
 ];
 
 function App() {
